@@ -1,6 +1,8 @@
 import './index.scss';
 import LogoS from '../../../assets/images/M_logo.png'
-import { useRef } from 'react';
+import { useEffect, useRef } from 'react';
+import DrawSVGPlugin from 'gsap-trial/DrawSVGPlugin';
+import gsap from 'gsap-trial';
 
 const Logo = () => {
 
@@ -8,9 +10,37 @@ const Logo = () => {
     const outlineLogoRef = useRef()
     const solidLogoRef = useRef()
 
+    // Kind of works, need to make adjustments
+    useEffect(() => {
+        gsap.registerPlugin(DrawSVGPlugin)
+
+        gsap
+            .timeline()
+            .to(bgRef.current, {
+                duration: 1,
+                opacity: 1
+            })
+            .from(outlineLogoRef.current, {
+                drawSVG: 0,
+                duration: 20,
+            })
+
+        gsap.fromTo(
+            solidLogoRef.current,
+            {
+                opacity: 0,
+            },
+            {
+                opacity: 1,
+                delay: 4,
+                duration: 4,
+            }
+        )
+    }, [])
+
     return (
-        <div className='logo-container'>
-            <img className='solid-logo' src={LogoS} alt="M" />
+        <div className='logo-container' ref={bgRef}>
+            <img ref={solidLogoRef} className='solid-logo' src={LogoS} alt="M" />
             <svg
                 width="559pt"
                 height="897pt"
@@ -19,12 +49,12 @@ const Logo = () => {
                 xmlns="http://www.w3.org/2000/svg"
             >
                 <g
-                className='svg-container'
-                transform="translate(0 457) scale(.1 -.1)"
-                fill="none"
+                    className='svg-container'
+                    transform="translate(0 457) scale(.1 -.1)"
+                    fill="none"
                 >
                     <path
-                    // need to figure out what this is
+                        // need to figure out what this is
                         d="m2930 4560c-344-16-623-85-915-228-231-114-406-241-600-436-61-60-145-137"
                     />
                 </g>
