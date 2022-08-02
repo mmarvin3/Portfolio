@@ -9,15 +9,14 @@ import Loader from 'react-loaders';
 
 const Home = () => {
     const [letterClass, setLetterClass] = useState('text-animate')
-    const nameArray = ['a', 'r', 'v', 'i', 'n']
+    const nameArray = [' ','M','a', 'r', 'v', 'i', 'n', '', 'M', 'e', 'r', 'i', 'd', 'a']
     const jobArray = ['w', 'e', 'b', '', 'd', 'e', 'v', 'e', 'l', 'o', 'p', 'e', 'r', '.']
 
-    // Need to figure out why this isn't working
-    // useEffect(() => {
-    //     return setTimeout(() => {
-    //         setLetterClass('text-animate-hover')
-    //     }, 4000)
-    // }, [])
+    useEffect(() => {
+        return () => setTimeout(() => {
+            setLetterClass('text-animate-hover')
+        }, 4000)
+    }, [])
 
     return (
         <>
@@ -29,7 +28,7 @@ const Home = () => {
                     <br />
                     <span className={`${letterClass} _13`}>I</span>
                     <span className={`${letterClass} _14`}>'m</span>
-                    <img scr={LogoTitle} alt="developer" />
+                    {/* <img scr={LogoTitle} alt="developer" /> */}
                     <AnimatedLetters letterClass={letterClass} 
                     strArray={nameArray}
                     idx={15}/>

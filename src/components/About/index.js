@@ -1,5 +1,5 @@
 
-// Replace Angular and GitAlt with Python and Django
+
 import { faPython, faCss3, faNodeJs, faHtml5, faJsSquare, faReact } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { useEffect, useState } from 'react'
@@ -10,12 +10,12 @@ import './index.scss'
 const About = () => {
     const [letterClass, setLetterClass] = useState('text-animate')
 
-    // Need to figure out how this state works
-    // useEffect(() => {
-    //     return setTimeout(() => {
-    //         setLetterClass('text-animate-hover')
-    //     }, 3000)
-    // }, [])
+   
+    useEffect(() => {
+        return () => setTimeout(() => {
+            setLetterClass('text-animate-hover')
+        }, 3000)
+    }, [])
 
     return (
         <>

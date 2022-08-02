@@ -53,10 +53,10 @@ const Logo = () => {
                     transform="translate(0 457) scale(.1 -.1)"
                     fill="none"
                 >
-                    <path
+                    {/* <path
                         // need to figure out what this is
                         d="m2930 4560c-344-16-623-85-915-228-231-114-406-241-600-436-61-60-145-137"
-                    />
+                    /> */}
                 </g>
             </svg>
         </div>
